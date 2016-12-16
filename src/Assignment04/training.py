@@ -3,12 +3,12 @@ import nltk
 import testing
 import sys
 from nltk.corpus import brown
-from nltk import word_tokenize
+from nltk import word_tokenize, sent_tokenize
 from collections import Counter
 input_file="/home/ayushi/nltk_data/corpora/brown"
 
 #train=['ca01','ca02']#,'ca03','ca04','ca05','ca06']#,'cb01','cb02','cb03','cb04','cb05','cb06']
-train=['ca01','ca02','cb01','cb02','ca03','ca04','cb03','cb04']
+train=['ca01']#,'ca02','cb01','cb02','ca03','ca04','cb03','cb04']
 test=['ay']
 alltaggedWords=list(brown.tagged_words(train))
 allbigrams=list(nltk.bigrams(alltaggedWords))
@@ -39,7 +39,7 @@ for i in dict1 :
         dict1[i][k]/=float(totalCount)
 #    print (i, ':', dict1[i])
 print("------------")
-    #P(w|t)
+#P(w|t)
 dict2={}
 for i,j in alltaggedWords: # i:word j:tag
     dict2[j]=[a for (a, b) in alltaggedWords if b==j]
